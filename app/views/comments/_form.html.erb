@@ -11,21 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
    
-    <%= form.text_field :author, placeholder: "Who are you?" %>
+    <%= form.text_field :author, placeholder: "Who are you?", class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     
-    <%= form.text_area :comment_entry, placeholder: "What's on your mind?" %>
+    <%= form.text_area :comment_entry, placeholder: "What's on your mind?", class: 'form-control' %>
   </div>
 
-  <div class="field">
-      <%= form.hidden_field :post_id, value: @post.id %>
+  <div class="form-group">
+      <%= form.hidden_field :post_id, value: @post.id, class: 'form-control' %>
   </div>
 
-  <div class="actions">
-    <%= form.submit "Tell the World!" %>
+  <div class="form-group">
+    <%= form.submit "Don't be shy, tell the world!", class: "form-control" %>
   </div>
 <% end %>

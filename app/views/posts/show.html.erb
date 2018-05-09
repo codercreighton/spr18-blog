@@ -1,31 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+<center>
+	<h1><%= @post.title %></h1>
+	<h3>Written By: <%= @post.author %></h3>
+	<p><%= @post.created_at.strftime('%B %e, %Y at %I:%M %p') %></p>
+	<div class="border"></div>
+	<p><em><%= @post.blog_entry %></em></p>
 
-<p>
-  <strong>Author:</strong>
-  <%= @post.author %>
-</p>
+	<%= link_to 'Edit', edit_post_path(@post) %> |
+	<%= link_to 'Back', posts_path %>
 
-<p>
-  <strong>Blog entry:</strong>
-  <%= @post.blog_entry %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+	<div class="border"></div>
 
 
-<div id="comments">
-	<%= render "comments/form", comment: @comment %>
 
-	<% @post.comments.each do |comment| %>
-		<p><em><%= comment.author %> said ...</em><br>
-			<%= comment.comment_entry %>
-		</p>
-	<% end %>
+	<div id="comments">
+		<%= render "comments/form", comment: @comment %>	
+		<div class= "border"></div>
+		<h2>Here's what others have said...</h2>
 
-</div>
+		<% @post.comments.each do |comment| %>
+			<h4><em><%= comment.author %> said ...</em></h4>
+			<p>	<%= comment.comment_entry %>
+			</p>
+		<% end %>
+
+	</div>
+</center>

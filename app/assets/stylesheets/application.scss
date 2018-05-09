@@ -10,9 +10,35 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
+ 
+
  */
 
-@import 'bootstrap-sprockets';
+/*@import 'bootstrap-sprockets';*/
 @import 'bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Titan+One');
+
+.jumbotron {
+	text-align: center;
+	background-image: url('food.jpeg');
+	width: 100%;
+	height: 600px;
+	padding-top: 200px;
+	color: white;
+	
+}
+.jumbotron h1 {
+	font-family: 'Titan One', cursive;
+	font-size: 100px;
+}
+.border{
+	margin: 50px;
+	height:3px;
+	width: 500px;
+	border-bottom: 3px solid gray;
+	
+}
+
+.index-text{
+	font-size: 20px;
+}
