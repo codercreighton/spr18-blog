@@ -18,6 +18,14 @@
 @import 'bootstrap';
 @import url('https://fonts.googleapis.com/css?family=Titan+One');
 
+
+.nav {
+	/*background-color: #353c42;*/
+	background-color: none;
+	color: white;
+	position: fixed;
+}
+
 .jumbotron {
 	text-align: center;
 	background-image: url('food.jpeg');
@@ -41,4 +49,25 @@
 
 .index-text{
 	font-size: 20px;
+}
+
+.thumb {
+	height: 75px;
+	width: 75px;
+}
+
+.show-pic{
+	height: 200px;
+	width: 200px;
+}
+.btn-secondary {
+	background-color: #353c42;
+	border-color: #353c42;
+}
+
+.btn-div-color{
+	background-color: #353c42;
+	position: fixed;
+	height: 40px;
+	width: 100%;
 }

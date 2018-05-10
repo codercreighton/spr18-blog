@@ -2,7 +2,8 @@
 
 <center>
 	<h1><%= @post.title %></h1>
-	<h3>Written By: <%= @post.author %></h3>
+	<p><%= image_tag @post.user.avatar.url, class: "show-pic" %></p>
+	<h3>Written By: <%= @post.user.username %></h3>
 	<p><%= @post.created_at.strftime('%B %e, %Y at %I:%M %p') %></p>
 	<div class="border"></div>
 	<p><em><%= @post.blog_entry %></em></p>
@@ -16,13 +17,18 @@
 
 	<div id="comments">
 		<%= render "comments/form", comment: @comment %>	
-		<div class= "border"></div>
-		<h2>Here's what others have said...</h2>
 
-		<% @post.comments.each do |comment| %>
-			<h4><em><%= comment.author %> said ...</em></h4>
-			<p>	<%= comment.comment_entry %>
-			</p>
+
+		<% if !@post.comments.empty?  %>
+
+			<h3>Here's what everyone thinks about this post...</h3>
+		
+			<% @post.comments.each do |comment| %>
+			<div class= "border"></div>
+				<h5><%= image_tag comment.user.avatar.url, class: "thumb" %><em><%= comment.user.username %> said ...</em></h5>
+				<p>	<%= comment.comment_entry.html_safe %>
+				</p>
+			<% end %>
 		<% end %>
 
 	</div>
