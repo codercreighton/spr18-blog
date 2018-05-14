@@ -1,0 +1,17 @@
+<h1>All Posts by <%= @user.username %>:</h1>
+
+<center>
+<% @user.posts.each do |post| %>
+ 
+   <h1><strong><%= post.title %></strong></h1>
+    <h3><%= image_tag post.user.avatar.url, class: 'thumb' %>On <%= post.created_at.strftime('%B %e, %Y at %I:%M %p') %>, <%= post.user.username %></h3>
+    <p class="index-text"><em><%= post.blog_entry[0...80].html_safe %>...</em></p>
+    <p><%= link_to 'Read More...', post, class: "btn btn-secondary" %> | <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-secondary" %></p>
+
+  <div class="border"></div>
+<% end %>
+  
+</center>
+<br>
+
+<%= link_to 'New Post', new_post_path %>

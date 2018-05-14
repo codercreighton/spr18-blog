@@ -5,9 +5,9 @@
 <% @posts.each do |post| %>
  
    <h1><strong><%= post.title %></strong></h1>
-    <h3><%= image_tag post.user.avatar.url, class: 'thumb' %>On <%= post.created_at.strftime('%B %e, %Y at %I:%M %p') %>, <%= post.user.username %></h3>
+    <h3><%= image_tag post.user.avatar.url, class: 'thumb' %>On <%= post.created_at.strftime('%B %e, %Y at %I:%M %p') %>, <%= link_to post.user.username, user_posts_path(name: post.user.username) %></h3>
     <p class="index-text"><em><%= post.blog_entry[0...80].html_safe %>...</em></p>
-    <p><%= link_to 'Read More...', post, class: "btn btn-secondary" %> | <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-secondary" %></p>
+    <p><%= link_to 'Read More...', post, class: "btn btn-secondary" %> <% if current_user.id == post.user_id %> | <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-secondary" %><% end %></p>
 
   <div class="border"></div>
 <% end %>
@@ -16,3 +16,6 @@
 <br>
 
 <%= link_to 'New Post', new_post_path %>
+
+
+<%= paginate @posts %>
